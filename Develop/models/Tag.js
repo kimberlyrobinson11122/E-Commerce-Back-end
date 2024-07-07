@@ -19,6 +19,7 @@ Tag.init(
       unique: true,
       validate: {
         len: [1],
+        // this is to make sure it has one character, at least
       },
     }
   },
