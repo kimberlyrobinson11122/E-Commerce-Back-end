@@ -1,53 +1,28 @@
-// import models
-const Product = require('./Product');
 const Category = require('./Category');
-const Tag = require('./Tag');
+const Product = require('./Product');
 const ProductTag = require('./ProductTag');
+const Tag = require('./Tag');
 
-// Products belongsTo Category
-Product.belongsToMany(Category, {
-  foreignKey: 'product_id',
-  through: ProductTag,
-  as: 'category',
-  onDelete: 'cascade',
-  constraints: false,
-});
-
-Product.belongsTo(Category, {
-  foreignKey: 'category_id', 
-  onDelete: 'cascade',
-  constraints: false,
-});
-
-
-// Product belongsTo Category
+// This Product belongsTo Category (multiple products but a product can only belong to one category)
 Product.belongsTo(Category, {
   foreignKey: 'category_id',
-  onDelete: 'cascade',
-  constraints: false,
 });
 
-// Category hasMany Products
+// This Category hasMany Products (Category has many Product Models)
 Category.hasMany(Product, {
   foreignKey: 'category_id',
-  onDelete: 'cascade',
-  constraints: false,
 });
 
-// Product belongsToMany Tags through ProductTag
+// This Product belongsToMany Tags through ProductTag (using ProductTag through model, allow products to havve multiple tags and tags to have manhy products)
 Product.belongsToMany(Tag, {
   through: ProductTag,
   foreignKey: 'product_id',
-  onDelete: 'cascade',
-  constraints: false,
 });
 
-// Tag belongsToMany Products through ProductTag
+// This Tag belongsToMany Products through ProductTag (Tab belongs to many Product models)
 Tag.belongsToMany(Product, {
   through: ProductTag,
   foreignKey: 'tag_id',
-  onDelete: 'cascade',
-  constraints: false,
 });
 
 module.exports = {
@@ -56,5 +31,3 @@ module.exports = {
   Tag,
   ProductTag,
 };
-
-
