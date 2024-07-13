@@ -6,6 +6,8 @@
 
 GitHub Repo for Readme: (https://github.com/kimberlyrobinson11122/E-Commerce-Back-end/blob/main/README.md)
 
+Walkthrough Video: (https://app.screencastify.com/v3/watch/aPFtNlR1TioExZXh1bMj)
+
 ## Images
 
 Screenshot of the back-end testing:
